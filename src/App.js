@@ -1,24 +1,68 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import Matthew from './pages/Matthew/Matthew';
+import Mark from './pages/Mark/Mark';
+import Luke from './pages/Luke/Luke';
+import John from './pages/John/John';
+import ModalChapters from './modal/ModalChapters';
 
 function App() {
+  const [book, setBook] = useState('matthew');
+  const [modal, setModal] = useState(false);
+
+  const closeModal = (value) => {
+    setModal(value);
+  };
+
+  const showModalMatt = (value) => {
+    setModal(true);
+    setBook('matthew');
+  };
+  const showModalMark = (value) => {
+    setModal(true);
+    setBook('mark');
+  };
+  const showModalLuke = (value) => {
+    setModal(true);
+    setBook('luke');
+  };
+  const showModalJohn = (value) => {
+    setModal(true);
+    setBook('john');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <button
+        className={`${book === 'matthew' ? 'activate' : ''}`}
+        onClick={showModalMatt}
+      >
+        Matthew
+      </button>
+      <button
+        className={`${book === 'mark' ? 'activate' : ''}`}
+        onClick={showModalMark}
+      >
+        Mark
+      </button>
+      <button
+        className={`${book === 'luke' ? 'activate' : ''}`}
+        onClick={showModalLuke}
+      >
+        Luke
+      </button>
+      <button
+        className={`${book === 'john' ? 'activate' : ''}`}
+        onClick={showModalJohn}
+      >
+        John
+      </button>
+      {book === 'matthew' && !modal && <Matthew />}
+      {book === 'mark' && !modal && <Mark />}
+      {book === 'luke' && !modal && <Luke />}
+      {book === 'john' && !modal && <John />}
+      {modal && <ModalChapters book={book} passStateUp={closeModal} />}
+    </>
   );
 }
 

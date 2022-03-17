@@ -1,0 +1,21 @@
+.modal {
+  height: 80vh;
+  width: 100%;
+}
+
+.chapters-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.chapters {
+  background-color: #fff;
+  width: 20%;
+  height: 100px;
+  border: 0.5px solid rgba(211, 211, 211, 0.308);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
