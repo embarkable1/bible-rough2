@@ -1,1 +1,1 @@
-# This Bible APP was migrated and redsigned utlizing the react library from vanilla javascript.
+# This Bible APP was migrated and redesigned from basic vanilla javascript to an SPA utilizing react. 
